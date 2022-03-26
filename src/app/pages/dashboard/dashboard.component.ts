@@ -91,9 +91,37 @@ get now(){
   }
   SynchBooks(): void {
 
+    swal.fire({
+      title: 'Procesando',
+      text: 'Sincronizando Books',
+      showConfirmButton: false,
+      allowOutsideClick: false
+    });
+    this.services.SyncBooks().subscribe({
+      next:(data:any)=>{
+        swal.fire('Operacion finalizada','Se actualizaron un total de: ' + data.librosAfectados)
+      },
+      error:(error:any)=>{
+        swal.fire('Error','Error al recuperar datos','error');
+      }
+    });
   }
   SynchAuthors(): void {
+    swal.fire({
+      title: 'Procesando',
+      text: 'Sincronizando Authors',
+      showConfirmButton: false,
+      allowOutsideClick: false
+    });
 
+    this.services.SyncAuthors().subscribe({
+      next:(data:any)=>{
+        swal.fire('Operacion finalizada','Se actualizaron un total de: ' + data.autoresAfectados)
+      },
+      error:(error:any)=>{
+        swal.fire('Error','Error al recuperar datos','error');
+      }
+    });
   }
 
 }

@@ -66,4 +66,20 @@ export class authorsBooksServices {
   }
 
 
+  public SyncAuthors(){
+    const httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    return this.http.post(this.urlbase + '/BooksAuthorsApi/SyncAuthros' ,{headers: httpHeaders});
+  }
+
+  public SyncBooks(){
+    const httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    return this.http.post(this.urlbase + '/BooksAuthorsApi/SynckBooks' ,{headers: httpHeaders});
+  }
+
 }
