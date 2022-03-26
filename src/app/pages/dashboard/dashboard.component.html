@@ -1,0 +1,104 @@
+
+
+
+<div class="container">
+  <h1>Informacion de libros y autores</h1>
+
+  <ul class="nav nav-pills">
+    <li role="presentation">Busqueda de libros por autores</li>
+
+  </ul>
+
+  <div class="row">
+    <div class="col-md-12 col-sm-12">
+
+      <section id="sec1">
+        <h2>Seccion Sincronizacion de datos</h2>
+        <div>
+          <div class="row">
+            <div class="form-group row">
+              <div class="col-sm-3">
+                  <button class="btn btn-primary" (click)="SynchAuthors()">Authors Sync</button>
+              </div>
+              <div class="col-sm-3">
+                <button class="btn btn-primary" (click)="SynchBooks()">Books Sync</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2>Seccion Consulta</h2>
+        <div class="row">
+
+
+          <div class="col-md-12" [formGroup]="formFilter">
+            <div class="form-group row">
+              <label for="txtnombreComercial" class="col-sm-1 col-form-label font-weight-bold">Author:</label>
+              <div class="col-sm-3">
+                <select class="form-control" formControlName="author">
+                  <option value="0"> -- Cualquier Author --</option>
+                  <option *ngFor="let item of authors" value="{{item.id}}" [ngValue]="item.id" >{{item.firstName}}</option>
+                </select>
+              </div>
+
+              <label for="txtnombreComercial" class="col-sm-1 col-form-label font-weight-bold">Begin Date:</label>
+              <div class="col-sm-2">
+                <input type="date" class="form-control"  formControlName="fechaI">
+              </div>
+
+              <label for="txtnombreComercial" class="col-sm-1 col-form-label font-weight-bold">Final Date:</label>
+              <div class="col-sm-2">
+                <input type="date" class="form-control"  formControlName="fechaF">
+              </div>
+
+              <div class="col-sm-2">
+                <input type="button" class="btn btn-primary" (click)="find()" value="Find">
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <br>
+        <div class="row">
+
+        </div>
+        <div class="row" style="display: ;">
+          <button class="btn btn-default" (click)="exportExcel()">Descargar en excel</button>
+          <table datatable [dtOptions]="dtOptions" class="row-border hover">
+            <thead>
+              <tr>
+              <th>
+                Book
+              </th>
+            <th>
+              Publish Date
+            </th>
+            <th>
+              Authors
+            </th>
+          </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of books">
+                  <td>{{item.title}}</td>
+                  <td>{{item.publishDate}}</td>
+                  <td>
+                    <ul>
+                      <li *ngFor="let auth of item.authors">
+                            {{auth.firstName}}
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+
+    </div>
+
+  </div>
+
+
+
+</div>

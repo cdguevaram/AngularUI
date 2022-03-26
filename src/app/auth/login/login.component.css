@@ -1,0 +1,70 @@
+.login-register {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+    padding: 10% 0;
+    position: fixed;
+}
+
+.login-box {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.login-sidebar {
+    padding: 0px;
+    margin-top: 0px;
+}
+
+.login-sidebar .login-box {
+    right: 0px;
+    position: center;
+    height: 100%
+}
+
+.form-group {
+    right: 0px;
+    position: center;
+    height: 100%
+}
+
+
+/* .card {
+    padding: 16px;
+    text-align: center;
+} */
+
+
+/*  */
+
+@media screen and (max-width:450px) {
+    .login-box>.card-body {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    .login-box {
+        width: 100%;
+        /* margin: 0 auto; */
+    }
+}
+
+.card {
+    background: transparent;
+    border: 0;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: black;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+}
